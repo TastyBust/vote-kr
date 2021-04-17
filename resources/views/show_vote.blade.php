@@ -37,7 +37,7 @@
 					<a href="/"><i class="fa fa-home" aria-hidden="true"></i> Главная</a>
 				</li>
 				<li class="breadcrumb-item active" aria-current="page">
-					Уточек программистам
+					{{$votes['title']}}
 				</li>
 			</ol>
 		</div>
@@ -46,9 +46,10 @@
 
 	<!-- НАЧАЛО: Основное содержимое страницы -->
 	<main class="mt-5">
+	
 		<div class="container">
 
-			<h1>Уточек программистам</h1>
+			<h1>	{{$votes['title']}}</h1>
 			<hr>
 
 			<!-- НАЧАЛО: Панель кнопочек -->
@@ -56,13 +57,13 @@
 				<a href="#" class="btn btn-outline-success mr-3">
 					<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Я за!
 					<span class="badge badge-pill badge-success">
-						12
+						{{$votes['positive']}}
 					</span>
 				</a>
 				<a href="#" class="btn btn-outline-danger mr-3">
 					<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Я против!
 					<span class="badge badge-pill badge-danger">
-						3
+						{{$votes['negative']}}
 					</span>
 				</a>
 			</div>
@@ -70,11 +71,12 @@
 			
 			<div>
 				<p>
-					Предлагаю раздавать программистам резиновых уточек бесплатно! Это в разы поднимет качество разрабатываемого ПО во всем мире.
+					{{$votes['text']}}
 				</p>
 			</div>
 
 		</div>
+	
 	</main>
 	<!-- КОНЕЦ: Основное содержимое страницы -->
 

@@ -8,7 +8,7 @@ use App\Models\Vote;
 class VoteController extends Controller
 {
     public function showAll(){
-        $vote= Vote::all();
+      
         $votes=Vote::all();
         return view('index',['votes'=>$votes]);
 
@@ -19,8 +19,29 @@ class VoteController extends Controller
         $vote->text = $request->text;
         $vote->positive = 0;
         $vote->negative = 0;
-        $vote->save;
-        return redirect('/');
+        $vote->save();
+
+         return redirect('/');
     }
+    public function showbyid($id){
+        $votes = new Vote;
+        $votes = Vote::where('id',$id)->first();
+     
+        return view('show_vote',['votes'=>$votes]);
+    }
+public function increasePositive($id){
+    $votes = new Vote;
+    $vote = Vote::where('id',$id)->first();
+    $vote->positive++;
+    $vote->save();
+    return back();
+}
+public function increaseNegative($id){
+    $votes = new Vote;
+    $vote = Vote::where('id',$id)->first();
+    $vote->negative++;
+    $vote->save();
+    return back();
+}
 
 }

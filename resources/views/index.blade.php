@@ -34,20 +34,20 @@
 		<div class="container">
 			<h1>Текущие голосования</h1>
 			<hr class="mb-5">
-			
+			@foreach ($votes as $vote)
 			<!-- НАЧАЛО: Карточка голосования ------------------------------------->
 			<div class="card border-info mb-4">
 				<!-- НАЧАЛО: Шапка карточки -->
 				<div class="card-header border-info">
 					<h5 class="card-title mb-0">
-						<a href="#">
-							Уточек программистам
+						<a href="/votes/show/{{$vote['id']}}">
+							{{$vote['title']}}
 						</a>
 					</h5>
 				</div>
 				<!-- КОНЕЦ: Шапка карточки -->
 				<!-- НАЧАЛО: Тело карточки -->
-				@foreach ($votes as $vote)
+			
 				
 				<div class="card-body">
 					<!-- Текст описания -->
@@ -55,24 +55,24 @@
 						{{$vote['text']}}
 					</p>
 					<!-- Кнопки голосования -->
-					<a href="#" class="btn btn-outline-success mr-3">
+					<a href="/vote/positive_inc/{{$vote['id']}}" class="btn btn-outline-success mr-3">
 						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Я за!
 						<span class="badge badge-pill badge-success">
 							{{$vote['positive']}}
 						</span>
 					</a>
-					<a href="#" class="btn btn-outline-danger mr-3">
+					<a href="/vote/negative_inc/{{$vote['id']}}" class="btn btn-outline-danger mr-3">
 						<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Я против!
 						<span class="badge badge-pill badge-danger">
 							{{$vote['negative']}}
 						</span>
 					</a>
 				</div>
-				@endforeach
+				
 				<!-- КОНЕЦ: Тело карточки -->
 			</div>
 			<!-- КОНЕЦ: Карточка голосования -------------------------------------->
-
+			@endforeach
 		</div>
 	</main>
 	<!-- КОНЕЦ: Основное содержимое страницы -->
