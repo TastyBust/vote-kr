@@ -73,6 +73,17 @@
 			</div>
 			<!-- КОНЕЦ: Карточка голосования -------------------------------------->
 			@endforeach
+	<div class="row">
+		
+				<a class="page-link" href="/" rel="next" aria-label="First»"><<</a>
+				
+		
+			{{$votes->links()}}
+
+				<a class="page-link" href="/?page={{$votes->lastpage()}}" rel="next" aria-label="Last">>></a>
+			</div>
+
+		
 		</div>
 	</main>
 	<!-- КОНЕЦ: Основное содержимое страницы -->

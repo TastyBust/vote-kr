@@ -54,13 +54,13 @@
 
 			<!-- НАЧАЛО: Панель кнопочек -->
 			<div class="mb-4">
-				<a href="#" class="btn btn-outline-success mr-3">
+				<a href="/vote/positive_inc/{{$votes['id']}}"" class="btn btn-outline-success mr-3">
 					<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Я за!
 					<span class="badge badge-pill badge-success">
 						{{$votes['positive']}}
 					</span>
 				</a>
-				<a href="#" class="btn btn-outline-danger mr-3">
+				<a href="/vote/negative_inc/{{$votes['id']}}"" class="btn btn-outline-danger mr-3">
 					<i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Я против!
 					<span class="badge badge-pill badge-danger">
 						{{$votes['negative']}}
