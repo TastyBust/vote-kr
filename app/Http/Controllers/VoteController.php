@@ -17,6 +17,7 @@ class VoteController extends Controller
         $vote = new Vote;
         $vote->title=$request->title;
         $vote->text = $request->text;
+        $vote->img=$request->img;
         $vote->positive = 0;
         $vote->negative = 0;
         $vote->save();

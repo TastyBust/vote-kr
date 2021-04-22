@@ -48,12 +48,13 @@
 	<main class="mt-5">
 	
 		<div class="container">
-
+<img style="max-width: 150px" src="{{$votes['img']}}" alt="">
 			<h1>	{{$votes['title']}}</h1>
 			<hr>
 
 			<!-- НАЧАЛО: Панель кнопочек -->
 			<div class="mb-4">
+			
 				<a href="/vote/positive_inc/{{$votes['id']}}"" class="btn btn-outline-success mr-3">
 					<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Я за!
 					<span class="badge badge-pill badge-success">
