@@ -21,8 +21,15 @@ class VoteController extends Controller
         $vote->positive = 0;
         $vote->negative = 0;
         $vote->save();
-
-         return redirect('/');
+        if(!empty($_FILES['newfile'])) {
+            if(move_uploaded_file($_FILES['newfile']['tmp_name'],'uploads/'.$_FILES['newfile']['name'])){
+            echo 'OK';
+            }
+            else {
+            echo 'ERROR';
+            }
+        }
+   
     }
     public function showbyid($id){
         $votes = new Vote;
@@ -44,5 +51,30 @@ public function increaseNegative($id){
     $vote->save();
     return back();
 }
-
+public function upload(Request $request){
+    $file = $request->file('image');
+ 
+    // отображаем имя файла
+    echo 'File Name: '.$file->getClientOriginalName();
+    echo '<br>';
+ 
+    //отображаем расширение файла
+    echo 'File Extension: '.$file->getClientOriginalExtension();
+    echo '<br>';
+ 
+    //отображаем фактический путь к файлу
+    echo 'File Real Path: '.$file->getRealPath();
+    echo '<br>';
+ 
+    //отображаем размер файла
+    echo 'File Size: '.$file->getSize();
+    echo '<br>';
+ 
+    //отображаем Mime-тип файла
+    echo 'File Mime Type: '.$file->getMimeType();
+ 
+    //перемещаем загруженный файл
+    $destinationPath = 'uploads';
+    $file->move($destinationPath,$file->getClientOriginalName());
+ }
 }

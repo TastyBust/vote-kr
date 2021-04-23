@@ -21,3 +21,4 @@ Route::post('/vote/create', '\App\Http\Controllers\VoteController@create');
 Route::get('/votes/show/{id}','\App\Http\Controllers\VoteController@showbyid' );
 Route::get('/vote/positive_inc/{id}', '\App\Http\Controllers\VoteController@increasePositive');
 Route::get('/vote/negative_inc/{id}', '\App\Http\Controllers\VoteController@increaseNegative');
+Route::post('file/upload', 'VoteControlle@upload')->name('file.upload');
